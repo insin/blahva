@@ -1,0 +1,18 @@
+apply plugin: 'application'
+apply plugin: 'eclipse'
+apply plugin: 'java'
+
+repositories {
+  mavenCentral()
+  maven { url 'http://www.sparkjava.com/nexus/content/repositories/spark' }
+  maven { url 'https://github.com/neuland/jade4j/raw/master/releases' }
+  maven { url 'https://repository.jboss.org/nexus/content/groups/public-jboss' }
+}
+
+dependencies {
+  compile group: 'de.neuland', name: 'jade4j', version: '0.2.15'
+  compile group: 'spark', name: 'spark', version: '0.9.9.3-SNAPSHOT'
+  compile group: 'org.hibernate', name: 'hibernate-validator', version: '4.3.0.Final'
+}
+
+mainClassName = 'test.TestServer'

@@ -1,0 +1,24 @@
+//- Field templates depend on the following variables being set up:
+//-
+//- * errors - mapping from field name to a list of error messages
+//- * name - the name of the field being rendered
+//- * label - the label to be displayed against the field
+//- * value - the value to be shown in the field
+
+mixin inlineErrors(name)
+  if errors && errors[name]
+    for error in errors[name]
+      span.help-inline= error
+
+block groupClass
+  groupClass = 'control-group'
+  if (errors && errors[name])
+    groupClass = groupClass + ' error'
+
+div(class=groupClass)
+  block label
+    label.control-label(for=name)= label
+  .controls
+    block controls
+    block errors
+      mixin inlineErrors(name)

@@ -1,0 +1,27 @@
+!!!
+html
+  //- Holds the name of the currently active page, for styling and marking active
+  //- Override this block from child templates to set
+  block page
+    page = null
+  head
+    title= APP_NAME
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.min.css')
+    style
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    link(rel='stylesheet', href='http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-responsive.min.css')
+    block extrahead
+  body(class=page)
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          a.brand(href='/')= APP_NAME
+          include navbar
+    .container
+      block content
+      hr
+      footer
+        p= APP_NAME

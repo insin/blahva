@@ -1,0 +1,11 @@
+//- Depends on the following variables being set:
+//- * NAV_BAR_ITEMS - an iterable of NavBarItem objects
+//- * page - the name of the currently-active page
+
+ul.nav
+  for navBarItem in NAV_BAR_ITEMS
+    navBarItemClass = null
+    if (page && page == navBarItem.name)
+      navBarItemClass = 'active'
+    li(class=navBarItemClass)
+      a(href=navBarItem.url)= navBarItem.text

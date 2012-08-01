@@ -1,0 +1,12 @@
+extends base
+
+block content
+  include ../form/mixins
+  form.form-horizontal(method='POST', action='/things/add')
+    fieldset
+      legend Add Thing
+      mixin text_input('name', 'Name', thing.name)
+      mixin textarea('description', 'Description', thing.description)
+    .form-actions
+      input.btn.btn-primary(type='submit', value='Add')
+      a.btn(href='/things') Cancel

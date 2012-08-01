@@ -1,0 +1,17 @@
+extends base
+
+block page
+  page = 'test'
+
+block content
+  h1 Testing
+  table.table.table-bordered.table-condensed
+    thead
+      tr
+        for heading in headings
+          th= heading
+    tbody
+      for row in rows
+        tr
+          for cell in row
+            td= cell
